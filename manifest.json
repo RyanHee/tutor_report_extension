@@ -1,10 +1,18 @@
 {
   "manifest_version": 3,
-  "name": "Tutor Report Generator",
+  "name": "TutorOps",
   "version": "1.0",
-  "description": "Generate unpaid session report from Google Sheet",
+  "description": "Tutor session report + mark paid",
   "action": {
     "default_popup": "popup.html"
   },
-  "permissions": []
+  "permissions": [
+    "identity"
+  ],
+  "oauth2": {
+    "client_id": "156482693037-d8db6s4apct5aif5f47rldl6g8kvuf36.apps.googleusercontent.com",
+    "scopes": [
+      "https://www.googleapis.com/auth/spreadsheets"
+    ]
+  }
 }
