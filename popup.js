@@ -1,4 +1,4 @@
-const SHEET_ID = "YOUR_SHEET_ID";
+const SHEET_ID = "1Zr6dXyauufAz0fXvSjZXvDrj7ap7sVUWh1lqbjU0rRU";
 const CSV_URL = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/export?format=csv`;
 
 document.getElementById("generate").addEventListener("click", async () => {
