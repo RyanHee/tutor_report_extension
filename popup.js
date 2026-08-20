@@ -7,12 +7,16 @@ let unpaidRows = [];
 async function getToken() {
   return new Promise((resolve, reject) => {
     chrome.identity.getAuthToken({ interactive: true }, token => {
-      if (chrome.runtime.lastError) reject(chrome.runtime.lastError);
-      else resolve(token);
+      if (chrome.runtime.lastError) {
+        console.error("AUTH ERROR:", chrome.runtime.lastError);
+        reject(new Error(chrome.runtime.lastError.message));
+      } else {
+        console.log("Got token:", token);
+        resolve(token);
+      }
     });
   });
 }
-
 async function fetchSheet() {
   const token = await getToken();
 
@@ -140,4 +144,6 @@ document.getElementById("copy").addEventListener("click", () => {
   document.execCommand("copy");
 });
 
-fetchSheet();
+fetchSheet().catch(err => {
+  console.error("fetchSheet failed:", err);
+});
